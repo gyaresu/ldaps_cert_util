@@ -11,6 +11,18 @@ A tool for retrieving and configuring LDAPS certificates for Passbolt. Automatic
 - Provides detailed debugging information
 - Compatible with Passbolt's LDAPS configuration requirements
 
+## Requirements
+
+### System Requirements
+- [OpenSSL](https://www.openssl.org/) command-line tool
+  - Usually available as package `openssl` in most Linux distributions and package managers
+  - The script uses `openssl s_client` to establish an SSL/TLS connection and retrieve the certificate chain
+  - No OpenSSL configuration or certificates are required as the script handles the connection and certificate parsing
+- Python 3.6+ (only required for creating the virtual environment)
+
+### Python Package Requirements
+- cryptography package (installed automatically in the virtual environment)
+
 ## Setup
 
 The tool uses a Python virtual environment to manage dependencies. To set up:
@@ -208,11 +220,6 @@ sudo su -s /bin/bash -c 'ldapsearch -x -D "username" -W -H ldaps://your_ldap_hos
    - Verify the certificate configuration in passbolt.php
    - Check web server user permissions
    - Verify LDAP connection parameters in Passbolt
-
-## Requirements
-
-- Python 3.6 or higher
-- cryptography package
 
 ## License
 
